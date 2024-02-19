@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>CSS first. Когда JS не нужен</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Про то, как переписать целые JS-библиотеки на CSS и в каких случаях это не стоит делать.">
+    <link rel="stylesheet" href="../src/shower/themes/ribbon-3/styles/styles.css">
+    <link rel="stylesheet" href="../src/highlight/styles/monokai.min.css">
+    <link rel="stylesheet" href="style.css?v=0.0.0">
+</head>
+
+<body class="shower list">
+
+    <header class="caption">
+        <h1>CSS First. Когда JavaScript не нужен</h1>
+        <p>
+            <a href="https://twitter.com/dark_mefody">Никита Дубко</a>, HR Tech Яндекса
+        </p>
+    </header>
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 class="shadowed" style="font-size: 3em; font-weight: 500; color: var(--color-white); text-align: center;">CSS First.<br>Когда JavaScript не нужен</h2>
+        <p style="margin-top: 180px; color: var(--color-yellow); text-align: center;">Никита Дубко, HR Tech Яндекса</p>
+        <img src="./pictures/shedevrum.jpeg" alt="" class="cover width place bottom" style="filter: blur(5px);">
+    </section>
+
+
+    <section class="slide">
+        <div style="margin-left: 350px;">
+            <h2>Никита Дубко</h2>
+            <ul>
+                <li>руководитель службы разработки</li>
+                <li>15 лет в профессии</li>
+                <li>верстаю на CSS 5</li>
+                <li>подкастер</li>
+                <li>беларус</li>
+            </ul>
+        </div>
+        <img src="./pictures/nikita.jpg" alt="" class="place left cover height">
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/wst.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://web-standards.ru/">Веб-стандарты</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="place" style="left: 60%;
+        top: 15%;
+        background: rgba(0 0 0 / 0.3);
+        padding: 0.5em;
+        text-align: center;
+        width: min-content;
+        border-radius: 1em;">JavaScript везде</h2>
+        <img src="./pictures/meme_is_everywhere.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/web-almanac.jpeg" alt="" class="place rounded" width="500">
+        <a class="copyright" href="https://almanac.httparchive.org/en/2022/">Web Almanac</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📱 2019 KB</h2>
+        <a class="copyright" href="https://almanac.httparchive.org/en/2022/page-weight">Page Weight</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🖥️ 2314 KB</h2>
+        <a class="copyright" href="https://almanac.httparchive.org/en/2022/page-weight">Page Weight</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/median-page-weight-by-content-type.png" alt="" class="place rounded" width="800">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/unused-js.png" alt="" class="place rounded" width="800">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/frameworks-libraries.png" alt="" class="place rounded" width="600">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 Заменить на CSS?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_battle.jpg" alt="" class="cover">
+        <h2 class="shout shadowed">JS vs CSS</h2>
+    </section>
+
+    <section class="slide title">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place left circle" width="400" style="margin-left: 3em;">
+        <img src="./pictures/css-boy.jpeg" alt="" class="place right circle next" width="400" style="margin-right: 3em;">
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">На сайт нужна каруселька!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+        <img src="./pictures/carousel.png" alt="" class="place right bottom" width="200" style="margin-bottom: 3em; margin-right: 3em;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-caruselka.jpeg" alt="" class="cover">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">ChatGPT, помоги найти хорошую карусельку в npm.</blockquote>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-swiper.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.npmjs.com/package/swiper">swiper</a>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.8em;" class="place"><code>&lt;link
+    rel=&quot;stylesheet&quot;
+    href=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css&quot;
+/&gt;
+
+&lt;script
+    src=&quot;https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js&quot;
+&gt;&lt;/script&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤩 PROFIT!</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_fry.png" alt="" class="cover rounded" width="600">
+    </section>
+
+    <section class="slide">
+        <pre class="bash place"><code>gzip_size() {
+    echo "Plain: $(curl -s $1 | wc -c)";
+    echo "Gzipped: $(curl -s $1 | gzip | wc -c)";
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   148159
+                    <br>
+                    Gzipped:    41120
+                </span>
+            </p>
+            <p>gzip_size https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   18435
+                    <br>
+                    Gzipped:    4845
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/math-zack-galifianakis.mp4" class="cover rounded" autoplay muted loop width="500"></video>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">41 120 <span class="pink">+</span> 4 845 <span class="pink">=</span> 45 965</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Топ-200 в LiveInternet</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">100 000 DAU</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1 запрос в день</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="pink">≈</span>30 дней в месяце</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">100 000 <span class="pink">×</span> 30 <span class="pink">×</span> 45 965 <span class="pink">=</span> 137 895 000 000</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">137.895 Гб</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">0.522 ₽ за гигабайт</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="pink">≈</span>72 ₽ в месяц</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">100 000 000 DAU</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout"><span class="pink">≈</span>72 000 ₽ в месяц</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Скорость мобильного интернета</h2>
+        <ul>
+            <li>EDGE — 0,2 Мбит/с, 1000 мс RTT;</li>
+            <li>3G — 1,0 Мбит/с, 600 мс RTT;</li>
+            <li>4G (LTE) — 2,0 Мбит/с, 220 мс RTT.</li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">1 Мбит/с <span class="pink">=</span> 125 Кб/с</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            370 мс <span class="pink">+</span> 600 мс RTT <span class="pink">=</span>
+            <br>
+            970 мс
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤨 Манипуляция <br> числами</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Отчасти 🙃</h2>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Карусельку хочу, чтобы карточки свайпать с товарами!<br>Но красиво, с прилипанием.<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🧐 CSS?</h2>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/media-scroller-component.jpeg" alt="" class="cover width place top">
+        <a class="copyright" href="https://web.dev/articles/building/a-media-scroller-component?hl=en">Building a media scroller component</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;ul class=&quot;horizontal-media-scroller&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;figure&gt;
+                &lt;picture&gt;
+                    &lt;img alt=&quot;...&quot; loading=&quot;lazy&quot; src=&quot;...&quot; /&gt;
+                &lt;/picture&gt;
+                &lt;figcaption&gt;Image Caption&lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="css" style="font-size: 0.9em;"><code>.horizontal-media-scroller {
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: calc(var(--gap) / 2);
+
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gap);
+}
+
+.horizontal-media-scroller figure {
+    scroll-snap-align: start;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>overscroll-behavior-x: contain;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>scroll-snap-type: x mandatory;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>scroll-snap-align: start;</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe src="./demo/scroller/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size http://127.0.0.1:8080/demo/style.min.css
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   2855
+                    <br>
+                    Gzipped:    993
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">45 965 <span class="pink">−</span> 993 <span class="pink">=</span> 44 972 <br><br> ⬇️ 97%</h2>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤨 Опять манипуляция</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">☝️ Уточняйте требования заказчика</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/simple-slider.jpeg" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://barthy-koeln.github.io/scroll-snap-slider/">Simple Slider</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scroll-snap-slider.jpeg" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://bundlephobia.com/package/scroll-snap-slider@3.1.1">scroll-snap-slider@3.1.1</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scroll-snap.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/css-snappoints">CSS Scroll Snap</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Нужно по клику на ссылку плавно скроллить к блоку!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-smooth-scroll.jpeg" alt="" class="place rounded" width="400">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://www.npmjs.com/package/smooth-scroll">Smooth Scroll</a>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll/dist/smooth-scroll.polyfills.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   6561
+                    <br>
+                    Gzipped:    2709
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>scroll-behavior: smooth;</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <iframe src="https://doka.guide/css/scroll-behavior/demos/values/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://doka.guide/css/scroll-behavior/">Дока: scroll-behavior</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤨 А если sticky-шапка?</h2>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>scroll-margin-top: 100px;</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <iframe src="./demo/smooth-scrolling/index.html" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="place"><code>@media (prefers-reduced-motion: no-preference) {
+    .smooth-scroll {
+        scroll-behavior: smooth;
+    }
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size http://127.0.0.1:8080/demo/smooth.min.css
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   86
+                    <br>
+                    Gzipped:    93
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2 709 <span class="pink">−</span> 93 <span class="pink">=</span> 2 616 <br><br> ⬇️ 96.5%</h2>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scroll-behavior.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/css-scroll-behavior">CSS Scroll-behavior</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Хочу параллакс по скроллу!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://react-scroll-parallax-examples.vercel.app/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-react-scroll-parallax.jpeg" alt="" class="place rounded" width="400">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://www.npmjs.com/package/react-scroll-parallax">react-scroll-parallax</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bundle-react-scroll-parallax.jpeg" width="800" alt="" class="place rounded">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://bundlephobia.com/package/react-scroll-parallax@3.4.3">react-scroll-parallax@3.4.3</a>
+    </section>
+
+    <section class="slide">
+        <iframe scrolling="no" class="cover width height" title="Pop out image scrollers with CSS scroll-driven animations 🤙" src="https://codepen.io/jh3y/embed/abPgrGR?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/abPgrGR">
+            Pop out image scrollers with CSS scroll-driven animations 🤙</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3em;">
+            <img src="./pictures/jhey.png" alt="" style="width: 20%; border-radius: 100%;">
+            x.com/jh3yy
+        </h2>
+    </section>
+
+    <section class="slide">
+        <pre class="css" style="font-size: 0.9em;"><code>.pop {
+    view-timeline-name: --pop;
+}
+img {
+    animation: slide both;
+    animation-timeline: --pop;
+    animation-range: entry 100% cover 50%;
+}
+.skateboarder {
+    --x: 0;
+    --y: -45%;
+}
+@keyframes slide {
+    to { translate: var(--x) var(--y); }
+}</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://twitter.com/jh3yy/status/1714404585660379593">jh3yy tweet</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation: some 2s linear infinite;</code></pre>
+    </section>
+    <section class="slide">
+        <pre class="place big css"><code>animation-name: some;
+animation-duration: 2s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;</code></pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">2s <span class="pink">=</span> 100%</h2>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/tools/scroll-timeline/progress/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://scroll-driven-animations.style/tools/scroll-timeline/progress/">Scroll Timeline Visualizer</a>
+    </section>
+
+    <section class="slide clear white">
+        <iframe src="https://scroll-driven-animations.style/demos/progress-bar/css/scroll-defaults.html?embed" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <pre style="font-size: 0.9em;"><code>@keyframes grow-progress {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+#progress {
+    position: fixed;
+    left: 0; top: 0;
+    width: 100%; height: 1em;
+    background: red;
+
+    transform-origin: 0 50%;
+    animation: grow-progress auto linear;
+    animation-timeline: scroll();
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation-timeline: scroll();</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big css"><code>animation-timeline: scroll(nearest block);</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place css"><code>.container {
+    scroll-timeline-name: --scroll-timeline;
+    scroll-timeline-axis: inline; /* or block */
+}
+
+.child {
+    animation-timeline: --scroll-timeline;
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bundle-readprogress.jpeg" alt="" class="place rounded" width="800">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://bundlephobia.com/package/readprogress@0.0.8">readprogress</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-scroll-driven.avif" alt="" width="700" class="place rounded">
+        <a class="copyright" href="https://developer.chrome.com/articles/scroll-driven-animations/">Animate elements on scroll with Scroll-driven animations</a>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://scroll-driven-animations.style/tools/view-timeline/ranges/" frameborder="0" class="cover width height"></iframe>
+        <a class="copyright" href="https://scroll-driven-animations.style/tools/view-timeline/ranges/">Range and Animation Progress Visualizer</a>
+    </section>
+
+    <section class="slide">
+        <iframe scrolling="no" class="cover width height" title="Pop out image scrollers with CSS scroll-driven animations 🤙" src="https://codepen.io/jh3y/embed/abPgrGR?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/abPgrGR">
+            Pop out image scrollers with CSS scroll-driven animations 🤙</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="css" style="font-size: 0.9em;"><code>.pop {
+    view-timeline-name: --pop;
+}
+img {
+    animation: slide both;
+    animation-timeline: --pop;
+    animation-range: entry 100% cover 50%;
+}
+.skateboarder {
+    --x: 0;
+    --y: -45%;
+}
+@keyframes slide {
+    to { translate: var(--x) var(--y); }
+}</code></pre>
+        <a class="copyright" href="https://twitter.com/jh3yy/status/1714404585660379593">jh3yy tweet</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Dynamic Scroll Indicators with Scroll Driven Animations [Polyfilled too!]" src="https://codepen.io/jh3y/embed/OJrRvEV?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/OJrRvEV">
+            Dynamic Scroll Indicators with Scroll Driven Animations [Polyfilled too!]</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scroll-driven-animations.jpeg" alt="" width="600" class="place rounded">
+        <a class="copyright" href="https://scroll-driven-animations.style/">Scroll-driven Animations</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-scroll-timeline.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/mdn-css_properties_scroll-timeline">CSS property: scroll-timeline</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/scroll-timeline-polyfill.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://github.com/flackr/scroll-timeline">flackr/scroll-timeline</a>
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   39988
+                    <br>
+                    Gzipped:    11512
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Interop 2024</h2>
+        <a class="copyright" href="https://github.com/orgs/web-platform-tests/projects/3">Interop 2024</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/interop.jpeg" alt="" class="place rounded" width="500">
+        <a class="copyright" href="https://wpt.fyi/interop-2023">Interop 2023</a>
+    </section>
+
+    <section class="slide">
+        <div class="spotlight next" style="
+                --spotlight-radius: 0;
+                --spotlight-opacity: 0.5;
+                --spotlight-width: 31%;
+                --spotlight-height: 34px;
+                --spotlight-top: -57px;
+                --spotlight-left: -33%;
+        "></div>
+        <img src="./pictures/interop-2024.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <pre><code>@keyframes detect-scroll {
+    from, to { --can-scroll: ; }
+}
+
+.container {
+    animation: detect-scroll linear;
+    animation-timeline: scroll(self);
+
+    --bg-if-can-scroll: var(--can-scroll) lime;
+    --bg-if-cant-scroll: red;
+    background: var(--bg-if-can-scroll, var(--bg-if-cant-scroll));
+}</code></pre>
+        <a class="copyright" href="https://www.bram.us/2023/09/16/solved-by-css-scroll-driven-animations-detect-if-an-element-can-scroll-or-not/">Detect if an element can scroll or not</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Scroll Detection with CSS Scroll-Driven Animations (Space Toggle)" src="https://codepen.io/bramus/embed/oNJeQjr?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/bramus/pen/oNJeQjr">
+            Scroll Detection with CSS Scroll-Driven Animations (Space Toggle)</a> by Bramus (<a href="https://codepen.io/bramus">@bramus</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bramus-scroll-direction.jpeg" alt="" width="700" class="place rounded">
+        <a class="copyright" href="https://www.bram.us/2023/10/23/css-scroll-detection/">Style an element based on the active Scroll Direction and Scroll Speed</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Ребята, тут в Safari <br> какой-то баг...<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_criminal.jpg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <blockquote class="big place">Кнопка «Корзины» не прилипает к низу!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev_dvh.png" alt="" class="place rounded" width="800">
+        <a class="copyright" href="https://web.dev/blog/viewport-units">The large, small, and dynamic viewport units</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>.my-element {
+    height: calc(var(--vh, 1vh) * 100);
+}</code></pre><br>
+        <pre class="next"><code>const vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+window.addEventListener('resize', () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});</code></pre>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place top right character">
+
+        <a class="copyright" href="https://stackoverflow.com/a/56671096">Safari Viewport Bug</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>height: 100dvh;</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place top right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-small-large-vw.jpeg" alt="" class="place rounded" width="870">
+        <a class="copyright" href="https://caniuse.com/viewport-unit-variants">Small, Large, and Dynamic viewport units</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Хочу нажимать на картинку, а она чтобы на весь экран открывалась.<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <iframe src="https://lokeshdhakar.com/projects/lightbox2/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lightbox-jquery.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/lightbox-jquery.jpeg" alt="" class="cover" style="scale: 3; translate: 351px 200px;">
+    </section>
+
+    <section class="slide">
+        <video src="./pictures/meme-nope-danny-de-vito.mp4" class="cover rounded" autoplay muted loop width="500"></video>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-lightgallery.jpeg" alt="" class="place rounded" width="400">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <div class="terminal" data-content="HolyJS: gzip_size">
+            <p>gzip_size https://unpkg.com/focus-trap@7.5.4/dist/focus-trap.umd.min.js
+                <br>
+                <span style="color: #0ae;">
+                    Plain:   10717
+                    <br>
+                    Gzipped:    3555
+                </span>
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 CSS?</h2>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;a href=&quot;#img1&quot;&gt;
+    &lt;img src=&quot;./small.jpg&quot;&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;lightbox&quot; id=&quot;img1&quot;&gt;
+    &lt;span style=&quot;background-image: url(&#39;./large.jpg&#39;)&quot;&gt;&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre><code>.lightbox {
+    display: none;
+
+    position: fixed;
+    z-index: 999;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox:target {
+    display: block;
+}</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-target.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://caniuse.com/mdn-css_selectors_target">CSS selector: :target</a>
+    </section>
+
+    <section class="slide white">
+        <iframe src="https://sylviavanos.nl/CSSBox/" frameborder="0" class="cover width height"></iframe>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Фокус не должен выходить за пределы попапа.<br>
+            <span class="cite-author">ГОСТ Р 52872-2019</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-focus-trap.jpeg" alt="" width="400" class="place rounded">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://www.npmjs.com/package/focus-trap">focus-trap</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place"><code>&lt;article class=&quot;content&quot; inert&gt;
+    &lt;!-- content --&gt;
+&lt;/article&gt;
+
+&lt;dialog open&gt;
+    Content
+&lt;/dialog&gt;</code></pre>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inert">inert</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-inert.jpeg" alt="" class="place rounded" width="870">
+        <a class="copyright" href="https://caniuse.com/mdn-html_global_attributes_inert">HTML attribute: inert</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/webdev-dialog.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://web.dev/articles/building/a-dialog-component">Building a dialog component</a>
+    </section>
+
+    <section class="slide">
+        <iframe scrolling="no" class="cover width height" title="Basic &lt;dialog&gt;" src="https://codepen.io/web-dot-dev/embed/popLbZB?default-tab=html%2Cresult" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/web-dot-dev/pen/popLbZB">
+            Basic &lt;dialog&gt;</a> by web.dev (<a href="https://codepen.io/web-dot-dev">@web-dot-dev</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;dialog&gt;
+    &lt;form method=&quot;dialog&quot;&gt;
+        &lt;button&gt;Close&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/dialog&gt;</code></pre>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>dialog.showModal();</code></pre>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-dialog.jpeg" alt="" width="870" class="place rounded">
+        <a class="copyright" href="https://caniuse.com/dialog">dialog</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Хочу аккордеон в навигации!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+        <img src="./pictures/accordion.png" alt="" class="place right bottom" width="200" style="margin-bottom: 3em; margin-right: 3em;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-accordion.jpeg" alt="" width="400" class="place rounded">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+        <a class="copyright" href="https://www.npmjs.com/package/@radix-ui/react-accordion">react-accordion</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/bundle-accordion.jpeg" width="800" alt="" class="place rounded">
+        <a class="copyright" href="https://bundlephobia.com/package/@radix-ui/react-accordion@1.1.2">react-accordion@1.1.2</a>
+    </section>
+
+    <section class="slide">
+        <pre><code>import * as Accordion from &#39;@radix-ui/react-accordion&#39;;
+
+() =&gt; (
+    &lt;Accordion.Root&gt;
+        &lt;Accordion.Item&gt;
+            &lt;Accordion.Header&gt;
+                &lt;Accordion.Trigger /&gt;
+            &lt;/Accordion.Header&gt;
+            &lt;Accordion.Content /&gt;
+        &lt;/Accordion.Item&gt;
+    &lt;/Accordion.Root&gt;
+);</code></pre>
+        <a class="copyright" href="https://www.radix-ui.com/primitives/docs/components/accordion">accordion</a>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🤔 CSS?</h2>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🙃 HTML</h2>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre><code>&lt;details name=accordion&gt;
+    &lt;summary&gt;Exclusive&lt;/summary&gt;
+    &lt;span&gt;Some Text 1&lt;/span&gt;
+&lt;/details&gt;
+&lt;details name=accordion&gt;
+    &lt;summary&gt;Accordion&lt;/summary&gt;
+    &lt;span&gt;Some Text 2&lt;/span&gt;
+&lt;/details&gt;
+&lt;details name=accordion&gt;
+    &lt;summary&gt;Pattern&lt;/summary&gt;
+    &lt;span&gt;Some Text 3&lt;/span&gt;
+&lt;/details&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;details name="common-name"&gt;</code></pre>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="details &amp;&amp; summary Exclusive Accordion Pattern [Chrome 120]" src="https://codepen.io/jh3y/embed/dywjPgq?default-tab=html%2Cresult" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/dywjPgq">
+            details &amp;&amp; summary Exclusive Accordion Pattern [Chrome 120]</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-details-name.jpeg" width="900" alt="" class="place rounded">
+        <a class="copyright" href="https://caniuse.com/mdn-html_elements_details_name">details name</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/interop-details.jpeg" alt="" class="cover">
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Хочу натуральную анимацию падающего мячика!<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Bounce Easing 🏀" src="https://codepen.io/smashingmag/embed/KKbmeeQ?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/smashingmag/pen/KKbmeeQ">
+            Bounce Easing 🏀</a> by Smashing Magazine (<a href="https://codepen.io/smashingmag">@smashingmag</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-gsap.jpeg" width="400" alt="" class="place rounded">
+        <a class="copyright" href="https://www.npmjs.com/package/gsap">GSAP</a>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/sm-linear.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://www.smashingmagazine.com/2023/09/path-css-easing-linear-function/">The Path To Awesome CSS Easing With The linear() Function</a>
+    </section>
+
+    <section class="slide">
+        <pre class="big place"><code>animation-timing-function: linear(0, 1);</code></pre>
+        <img src="./pictures/css-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <iframe src="https://linear-easing-generator.netlify.app/" class="cover width height" frameborder="0"></iframe>
+        <a class="copyright" href="https://linear-easing-generator.netlify.app/">Linear Easing Generator</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-linear.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/mdn-css_types_easing-function_linear-function">Easing Linear</a>
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>CSS.supports(
+    'animation-timing-function',
+    'linear(0, 1)'
+)</code></pre>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Давайте ускорим сайт! Что-то слышал про Core Web Vitals.<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🦥 Ленивая загрузка?</h2>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/npm-lazy-load.jpeg" alt="" class="place rounded" width="400">
+        <a class="copyright" href="https://www.npmjs.com/package/vanilla-lazyload">vanilla-lazyload</a>
+        <img src="./pictures/js-boy.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;img src=&quot;photo.jpg&quot; loading=&quot;lazy&quot;&gt;</code></pre>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <pre class="place big"><code>&lt;iframe src=&quot;frame.html&quot; loading=&quot;lazy&quot;&gt;</code></pre>
+        <img src="./pictures/html-girl.jpeg" alt="" class="place bottom right character">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-loading-lazy.jpeg" alt="" class="place rounded" width="900">
+        <a class="copyright" href="https://caniuse.com/loading-lazy-attr">loading=lazy</a>
+    </section>
+
+    <section class="slide title">
+        <blockquote class="big place">Можем сделать панельки, которые изменяют размер?<br>
+            <span class="cite-author">Заказчик</span>
+        </blockquote>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="It's 2023 and you can't style the resize handle..." src="https://codepen.io/jh3y/embed/WNLJLXw?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/jh3y/pen/WNLJLXw">
+            It's 2023 and you can't style the resize handle...</a> by Jhey (<a href="https://codepen.io/jh3y">@jh3y</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <pre><code>.panels {
+    display: grid;
+    grid-template-columns: auto 1fr; /* 👈 */
+}
+
+.resizer {
+    max-width: 100cqi;
+    overflow: hidden;
+    resize: horizontal; /* 👈 */
+}</code></pre>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/caniuse-resize.jpeg" width="900" alt="" class="place rounded">
+        <a class="copyright" href="https://caniuse.com/css-resize">CSS: resize</a>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="09. CSS Anchor Positioning Bar Chart" src="https://codepen.io/web-dot-dev/embed/PoeNKXJ?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/web-dot-dev/pen/PoeNKXJ">
+            09. CSS Anchor Positioning Bar Chart</a> by web.dev (<a href="https://codepen.io/web-dot-dev">@web-dot-dev</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide">
+        <iframe class="cover width height" scrolling="no" title="Pure CSS minesweeper" src="https://codepen.io/bali_balo/embed/BLJONZ?default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href="https://codepen.io/bali_balo/pen/BLJONZ">
+            Pure CSS minesweeper</a> by Bali Balo (<a href="https://codepen.io/bali_balo">@bali_balo</a>)
+            on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+    </section>
+
+    <section class="slide clear" style="background-color: black;">
+        <h2 class="shadowed" style="font-size: 3em; font-weight: 500; color: var(--color-white); text-align: center;">CSS First.<br>Когда JavaScript не нужен</h2>
+        <p style="margin-top: 180px; color: var(--color-yellow); text-align: center;">Никита Дубко, HR Tech Яндекса</p>
+        <img src="./pictures/shedevrum.jpeg" alt="" class="cover width place bottom" style="filter: blur(5px);">
+    </section>
+
+    <section class="slide clear" style="background-color: var(--color-pink);">
+        <h2 class="shadowed" style="font-size: 3em; font-weight: 500; color: var(--color-white); text-align: center;">JavaScript First.<br>Когда CSS<br>не нужен</h2>
+        <p style="margin-top: 180px; color: var(--color-yellow); text-align: center;">Никита Дубко, HR Tech Яндекса</p>
+        <img src="./pictures/shedevrum.jpeg" alt="" class="cover width place bottom" style="filter: blur(5px); mix-blend-mode: difference;">
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/meme_girl_car.webp" alt="" class="cover">
+    </section>
+
+    <section class="slide title">
+        <img src="./pictures/js-boy.jpeg" alt="" class="place left circle" width="300" style="margin-left: 3em;">
+        <img src="./pictures/css-boy.jpeg" alt="" class="place right circle next" width="300" style="margin-right: 3em;">
+        <img src="./pictures/html-girl.jpeg" alt="" class="place circle next" width="300" style="margin-right: 3em;">
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">📚 Знайте свои инструменты</h2>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">🗞️ Будьте в курсе</h2>
+    </section>
+
+    <section class="slide clear">
+        <img src="./pictures/wst.jpeg" alt="" class="cover">
+        <a class="copyright" href="https://web-standards.ru/">Веб-стандарты</a>
+    </section>
+
+    <section class="slide">
+        <img src="./pictures/mefody_dev_tg.jpeg" alt="" class="place rounded left" width="700">
+        <img src="./pictures/qr-code-tg.png" alt="" class="place right" width="250" style="margin-right: 100px;">
+    </section>
+
+    <section class="slide clear" id="final">
+        <h2>Давайте жить дружно!</h2>
+        <a href="https://mefody.dev/talks/css-first/">mefody.dev/talks/css-first/</a>
+        <br>
+        <a href="https://twitter.com/dark_mefody">@dark_mefody</a>
+        <br>
+        <a href="https://t.me/mefody_dev">t.me/mefody_dev</a>
+        <img src="./pictures/qr-code.gif" alt="QR-код со ссылкой на доклад" class="place bottom right" width="300" style="filter: invert(1); right: 100px; bottom: 80px">
+    </section>
+
+    <footer class="badge">
+        <a href="https://github.com/shower/shower">Сделано в Shower</a>
+    </footer>
+
+    <div class="progress"></div>
+
+    <script src="../src/shower/shower.min.js"></script>
+    <script src="../src/highlight/highlight.pack.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        (function() {
+            var mouseTimer = null, cursorVisible = true;
+
+            function disappearCursor() {
+                mouseTimer = null;
+                document.body.style.cursor = "none";
+                cursorVisible = false;
+            }
+
+            document.onmousemove = function() {
+                if (mouseTimer) {
+                    window.clearTimeout(mouseTimer);
+                }
+                if (!cursorVisible) {
+                    document.body.style.cursor = "default";
+                    cursorVisible = true;
+                }
+                mouseTimer = window.setTimeout(disappearCursor, 3000);
+            };
+        })();
+    </script>
+</body>
+
+</html>
